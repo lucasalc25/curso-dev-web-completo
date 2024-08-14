@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <title>Calculadora</title>
+
+    <style type="text/css">
+      .btn-calc {
+        padding: 20px 0px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script type="text/JavaScript">
+      let resetarVisor=false;
+      
+      const divContainer = document.createElement("div");
+      divContainer.classList.add('container');
+      divContainer.classList.add('bg-secondary');
+      divContainer.classList.add('col-4');
+
+      const title = document.createElement("h1");
+      title.innerHTML = "Calculadora";
+      title.classList.add('text-center');
+      title.classList.add('text-light');
+      divContainer.append(title);
+
+      var divInputResultado = document.createElement("div");
+      divInputResultado.classList.add('row');
+      divInputResultado.classList.add('justify-content-center');
+
+      var inputResultado = document.createElement("input");
+      inputResultado.id = "visor";
+      inputResultado.placeholder = "0"
+      inputResultado.classList.add('form-control');
+      inputResultado.disabled = true;
+      divInputResultado.append(inputResultado);
+      divContainer.appendChild(divInputResultado);
+
+      var divPrimeiraLinha = document.createElement("div");
+      divPrimeiraLinha.classList.add('row');
+      divPrimeiraLinha.classList.add('justify-content-center');
+
+      var buttonC = document.createElement("button");
+      buttonC.classList.add('btn');
+      buttonC.classList.add('btn-dark');
+      buttonC.classList.add('btn-lg');
+      buttonC.classList.add('font-weight-light');
+      buttonC.classList.add('border');
+      buttonC.classList.add('border-light');
+      buttonC.classList.add('btn-calc');
+      buttonC.classList.add('col-6');
+      buttonC.innerHTML = "C";
+      divPrimeiraLinha.append(buttonC);
+
+      var buttonDivider = document.createElement("button");
+      buttonDivider.classList.add('btn');
+      buttonDivider.classList.add('btn-dark');
+      buttonDivider.classList.add('btn-lg');
+      buttonDivider.classList.add('font-weight-light');
+      buttonDivider.classList.add('border');
+      buttonDivider.classList.add('border-light');
+      buttonDivider.classList.add('btn-calc');
+      buttonDivider.classList.add('col-3');
+      buttonDivider.innerHTML = "/";
+      divPrimeiraLinha.append(buttonDivider);
+
+      var buttonMulti = document.createElement("button");
+      buttonMulti.classList.add('btn');
+      buttonMulti.classList.add('btn-dark');
+      buttonMulti.classList.add('btn-lg');
+      buttonMulti.classList.add('font-weight-light');
+      buttonMulti.classList.add('border');
+      buttonMulti.classList.add('border-light');
+      buttonMulti.classList.add('btn-calc');
+      buttonMulti.classList.add('col-3');
+      buttonMulti.innerHTML = "X";
+      divPrimeiraLinha.append(buttonMulti);
+
+      divContainer.appendChild(divPrimeiraLinha);
+
+      var divSegundaLinha = document.createElement("div");
+      divSegundaLinha.classList.add('row');
+      divSegundaLinha.classList.add('justify-content-center');
+
+      var button7 = document.createElement("button");
+      button7.classList.add('btn');
+      button7.classList.add('btn-dark');
+      button7.classList.add('btn-lg');
+      button7.classList.add('font-weight-light');
+      button7.classList.add('border');
+      button7.classList.add('border-light');
+      button7.classList.add('btn-calc');
+      button7.classList.add('col-3');
+      button7.innerHTML = "7";
+      divSegundaLinha.append(button7);
+
+      var button8 = document.createElement("button");
+      button8.classList.add('btn');
+      button8.classList.add('btn-dark');
+      button8.classList.add('btn-lg');
+      button8.classList.add('font-weight-light');
+      button8.classList.add('border');
+      button8.classList.add('border-light');
+      button8.classList.add('btn-calc');
+      button8.classList.add('col-3');
+      button8.innerHTML = "8";
+      divSegundaLinha.append(button8);
+
+      var button9 = document.createElement("button");
+      button9.classList.add('btn');
+      button9.classList.add('btn-dark');
+      button9.classList.add('btn-lg');
+      button9.classList.add('font-weight-light');
+      button9.classList.add('border');
+      button9.classList.add('border-light');
+      button9.classList.add('btn-calc');
+      button9.classList.add('col-3');
+      button9.innerHTML = "9";
+      divSegundaLinha.append(button9);
+
+      var buttonSub = document.createElement("button");
+      buttonSub.classList.add('btn');
+      buttonSub.classList.add('btn-dark');
+      buttonSub.classList.add('btn-lg');
+      buttonSub.classList.add('font-weight-light');
+      buttonSub.classList.add('border');
+      buttonSub.classList.add('border-light');
+      buttonSub.classList.add('btn-calc');
+      buttonSub.classList.add('col-3');
+      buttonSub.innerHTML = "-";
+      divSegundaLinha.append(buttonSub);
+
+      divContainer.appendChild(divSegundaLinha);
+
+      var divTerceiraLinha = document.createElement("div");
+      divTerceiraLinha.classList.add('row');
+      divTerceiraLinha.classList.add('justify-content-center');
+
+      var button4 = document.createElement("button");
+      button4.classList.add('btn');
+      button4.classList.add('btn-dark');
+      button4.classList.add('btn-lg');
+      button4.classList.add('font-weight-light');
+      button4.classList.add('border');
+      button4.classList.add('border-light');
+      button4.classList.add('btn-calc');
+      button4.classList.add('col-3');
+      button4.innerHTML = "4";
+      divTerceiraLinha.append(button4);
+
+      var button5 = document.createElement("button");
+      button5.classList.add('btn');
+      button5.classList.add('btn-dark');
+      button5.classList.add('btn-lg');
+      button5.classList.add('font-weight-light');
+      button5.classList.add('border');
+      button5.classList.add('border-light');
+      button5.classList.add('btn-calc');
+      button5.classList.add('col-3');
+      button5.innerHTML = "5";
+      divTerceiraLinha.append(button5);
+
+      var button6 = document.createElement("button");
+      button6.classList.add('btn');
+      button6.classList.add('btn-dark');
+      button6.classList.add('btn-lg');
+      button6.classList.add('font-weight-light');
+      button6.classList.add('border');
+      button6.classList.add('border-light');
+      button6.classList.add('btn-calc');
+      button6.classList.add('col-3');
+      button6.innerHTML = "6";
+      divTerceiraLinha.append(button6);
+
+      var buttonSum = document.createElement("button");
+      buttonSum.classList.add('btn');
+      buttonSum.classList.add('btn-dark');
+      buttonSum.classList.add('btn-lg');
+      buttonSum.classList.add('font-weight-light');
+      buttonSum.classList.add('border');
+      buttonSum.classList.add('border-light');
+      buttonSum.classList.add('btn-calc');
+      buttonSum.classList.add('col-3');
+      buttonSum.innerHTML = "+";
+      divTerceiraLinha.append(buttonSum);
+
+      divContainer.appendChild(divTerceiraLinha);
+
+      var divQuartaLinha = document.createElement("div");
+      divQuartaLinha.classList.add('row');
+      divQuartaLinha.classList.add('justify-content-center');
+
+      var button1 = document.createElement("button");
+      button1.classList.add('btn');
+      button1.classList.add('btn-dark');
+      button1.classList.add('btn-lg');
+      button1.classList.add('font-weight-light');
+      button1.classList.add('border');
+      button1.classList.add('border-light');
+      button1.classList.add('btn-calc');
+      button1.classList.add('col-3');
+      button1.innerHTML = "1";
+      divQuartaLinha.append(button1);
+
+      var button2 = document.createElement("button");
+      button2.classList.add('btn');
+      button2.classList.add('btn-dark');
+      button2.classList.add('btn-lg');
+      button2.classList.add('font-weight-light');
+      button2.classList.add('border');
+      button2.classList.add('border-light');
+      button2.classList.add('btn-calc');
+      button2.classList.add('col-3');
+      button2.innerHTML = "2";
+      divQuartaLinha.append(button2);
+
+      var button3 = document.createElement("button");
+      button3.classList.add('btn');
+      button3.classList.add('btn-dark');
+      button3.classList.add('btn-lg');
+      button3.classList.add('font-weight-light');
+      button3.classList.add('border');
+      button3.classList.add('border-light');
+      button3.classList.add('btn-calc');
+      button3.classList.add('col-3');
+      button3.innerHTML = "3";
+      divQuartaLinha.append(button3);
+
+      var buttonPoint = document.createElement("button");
+      buttonPoint.classList.add('btn');
+      buttonPoint.classList.add('btn-dark');
+      buttonPoint.classList.add('btn-lg');
+      buttonPoint.classList.add('font-weight-light');
+      buttonPoint.classList.add('border');
+      buttonPoint.classList.add('border-light');
+      buttonPoint.classList.add('btn-calc');
+      buttonPoint.classList.add('col-3');
+      buttonPoint.innerHTML = ".";
+      divQuartaLinha.append(buttonPoint);
+
+      divContainer.appendChild(divQuartaLinha);
+
+      var divQuintaLinha = document.createElement("div");
+      divQuintaLinha.classList.add('row');
+      divQuintaLinha.classList.add('justify-content-center');
+
+      var button0 = document.createElement("button");
+      button0.classList.add('btn');
+      button0.classList.add('btn-dark');
+      button0.classList.add('btn-lg');
+      button0.classList.add('font-weight-light');
+      button0.classList.add('border');
+      button0.classList.add('border-light');
+      button0.classList.add('btn-calc');
+      button0.classList.add('col-3');
+      button0.innerHTML = "0";
+      divQuintaLinha.append(button0);
+
+      var buttonEqual = document.createElement("button");
+      buttonEqual.classList.add('btn');
+      buttonEqual.classList.add('btn-dark');
+      buttonEqual.classList.add('btn-lg');
+      buttonEqual.classList.add('font-weight-light');
+      buttonEqual.classList.add('border');
+      buttonEqual.classList.add('border-light');
+      buttonEqual.classList.add('btn-calc');
+      buttonEqual.classList.add('col-9');
+      buttonEqual.innerHTML = "=";
+      divQuintaLinha.append(buttonEqual);
+
+      divContainer.appendChild(divQuintaLinha);
+
+      document.body.append(divContainer);
+    </script>
+  </body>
+</html>
