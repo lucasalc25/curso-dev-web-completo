@@ -20,15 +20,7 @@
 
     <script type="text/JavaScript">
       let resetarVisor=false;
-      let n1, n2;
-
-      function verificarNumero() {
-        if(n1 != null) {
-          return true
-        } else {
-          return false
-        }
-      }
+      let n1, n2, operacao, resultado;
       
       const divContainer = document.createElement("div");
       divContainer.classList.add('container');
@@ -68,8 +60,9 @@
       buttonC.classList.add('col-6');
       buttonC.onclick = function() {
         var visor = document.getElementById('visor');
-
+        n1, n2, operacao, resultado = null;
         resetarVisor=true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
@@ -89,8 +82,8 @@
       buttonDivider.classList.add('col-3');
       buttonDivider.onclick = function() {
         var visor = document.getElementById('visor');
-
-        resetarValor = true;
+        operacao = "/"
+        resetarVisor = true;
 
         if(resetarVisor) {
           resetarVisor = false;
@@ -113,6 +106,8 @@
       buttonMulti.classList.add('col-3');
       buttonMulti.onclick = function() {
         var visor = document.getElementById('visor');
+        operacao = "*"
+        resetarVisor = true;
 
         if(resetarVisor) {
           resetarVisor = false;
@@ -142,12 +137,19 @@
       button7.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "7";
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       button7.innerHTML = "7";
       divSegundaLinha.append(button7);
@@ -164,12 +166,19 @@
       button8.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "8";
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       button8.innerHTML = "8";
       divSegundaLinha.append(button8);
@@ -186,12 +195,19 @@
       button9.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "9";
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       button9.innerHTML = "9";
       divSegundaLinha.append(button9);
@@ -208,6 +224,8 @@
       buttonSub.innerHTML = "-";
       buttonSub.onclick = function() {
         var visor = document.getElementById('visor');
+        operacao = "-"
+        resetarVisor = true;
 
         if(resetarVisor) {
           resetarVisor = false;
@@ -237,12 +255,19 @@
       button4.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "4";
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       divTerceiraLinha.append(button4);
 
@@ -258,12 +283,19 @@
       button5.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "5";
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       button5.innerHTML = "5";
       divTerceiraLinha.append(button5);
@@ -280,12 +312,20 @@
       button6.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "6";
+        
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       button6.innerHTML = "6";
       divTerceiraLinha.append(button6);
@@ -301,6 +341,12 @@
       buttonSum.classList.add('col-3');
       buttonSum.onclick = function() {
         var visor = document.getElementById('visor');
+        operacao = "+"
+        resetarVisor = true;
+
+        if(resultado) {
+          n1 = resultado;
+        }
 
         if(resetarVisor) {
           resetarVisor = false;
@@ -329,10 +375,20 @@
       button1.classList.add('col-3');
       button1.onclick = function() {
         var visor = document.getElementById('visor');
-        
+
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
+        }
+
+        visor.value += "1";
+        
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
         }
       }
       button1.innerHTML = "1";
@@ -350,12 +406,20 @@
       button2.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "2";
+        
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       button2.innerHTML = "2";
       divQuartaLinha.append(button2);
@@ -372,12 +436,21 @@
       button3.onclick = function() {
         var visor = document.getElementById('visor');
 
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
         }
 
         visor.value += "3";
+        
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
+
       }
       button3.innerHTML = "3";
       divQuartaLinha.append(button3);
@@ -422,15 +495,7 @@
       button0.onclick = function() {
         var visor = document.getElementById('visor');
 
-        if(resetarVisor) {
-          resetarVisor = false;
-          visor.value = "";
-        }
-
-        visor.value += "0";
-      }
-      button0.onclick = function() {
-        var visor = document.getElementById('visor');
+        if(operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/") resetarVisor = true;
 
         if(resetarVisor) {
           resetarVisor = false;
@@ -438,6 +503,11 @@
         }
 
         visor.value += "0";
+        if(n1 == null) {
+          n1 = parseInt(visor.value);
+        } else {
+          n2 = parseInt(visor.value);
+        }
       }
       button0.innerHTML = "0";
       divQuintaLinha.append(button0);
@@ -453,13 +523,30 @@
       buttonEqual.classList.add('col-9');
       buttonEqual.onclick = function() {
         var visor = document.getElementById('visor');
+        resetarVisor=true;
 
-        if(resetarVisor) {
+        if(resetarVisor && n2 != null) {
+          switch(operacao) {
+            case "+":
+              resultado = n1 + n2;
+              break;
+            case "-":
+              resultado = n1 - n2;
+              break;
+            case "x":
+              resultado = n1 * n2;
+              break;
+            case "/":
+              resultado = n1 / n2;
+              break;
+            default:
+              return
+          }
           resetarVisor = false;
           visor.value = "";
         }
 
-        visor.value += "=";
+        visor.value += resultado;
       }
 
       buttonEqual.innerHTML = "=";
