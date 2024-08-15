@@ -20,6 +20,15 @@
 
     <script type="text/JavaScript">
       let resetarVisor=false;
+      let n1, n2;
+
+      function verificarNumero() {
+        if(n1 != null) {
+          return true
+        } else {
+          return false
+        }
+      }
       
       const divContainer = document.createElement("div");
       divContainer.classList.add('container');
@@ -57,6 +66,15 @@
       buttonC.classList.add('border-light');
       buttonC.classList.add('btn-calc');
       buttonC.classList.add('col-6');
+      buttonC.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        resetarVisor=true;
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+      }
       buttonC.innerHTML = "C";
       divPrimeiraLinha.append(buttonC);
 
@@ -69,6 +87,18 @@
       buttonDivider.classList.add('border-light');
       buttonDivider.classList.add('btn-calc');
       buttonDivider.classList.add('col-3');
+      buttonDivider.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        resetarValor = true;
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "/";
+      }
       buttonDivider.innerHTML = "/";
       divPrimeiraLinha.append(buttonDivider);
 
@@ -81,6 +111,16 @@
       buttonMulti.classList.add('border-light');
       buttonMulti.classList.add('btn-calc');
       buttonMulti.classList.add('col-3');
+      buttonMulti.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "*";
+      }
       buttonMulti.innerHTML = "X";
       divPrimeiraLinha.append(buttonMulti);
 
@@ -99,6 +139,16 @@
       button7.classList.add('border-light');
       button7.classList.add('btn-calc');
       button7.classList.add('col-3');
+      button7.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "7";
+      }
       button7.innerHTML = "7";
       divSegundaLinha.append(button7);
 
@@ -111,6 +161,16 @@
       button8.classList.add('border-light');
       button8.classList.add('btn-calc');
       button8.classList.add('col-3');
+      button8.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "8";
+      }
       button8.innerHTML = "8";
       divSegundaLinha.append(button8);
 
@@ -123,6 +183,16 @@
       button9.classList.add('border-light');
       button9.classList.add('btn-calc');
       button9.classList.add('col-3');
+      button9.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "9";
+      }
       button9.innerHTML = "9";
       divSegundaLinha.append(button9);
 
@@ -136,6 +206,16 @@
       buttonSub.classList.add('btn-calc');
       buttonSub.classList.add('col-3');
       buttonSub.innerHTML = "-";
+      buttonSub.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "-";
+      }
       divSegundaLinha.append(buttonSub);
 
       divContainer.appendChild(divSegundaLinha);
@@ -154,6 +234,16 @@
       button4.classList.add('btn-calc');
       button4.classList.add('col-3');
       button4.innerHTML = "4";
+      button4.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "4";
+      }
       divTerceiraLinha.append(button4);
 
       var button5 = document.createElement("button");
@@ -165,6 +255,16 @@
       button5.classList.add('border-light');
       button5.classList.add('btn-calc');
       button5.classList.add('col-3');
+      button5.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "5";
+      }
       button5.innerHTML = "5";
       divTerceiraLinha.append(button5);
 
@@ -177,6 +277,16 @@
       button6.classList.add('border-light');
       button6.classList.add('btn-calc');
       button6.classList.add('col-3');
+      button6.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "6";
+      }
       button6.innerHTML = "6";
       divTerceiraLinha.append(button6);
 
@@ -189,6 +299,16 @@
       buttonSum.classList.add('border-light');
       buttonSum.classList.add('btn-calc');
       buttonSum.classList.add('col-3');
+      buttonSum.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "+";
+      }
       buttonSum.innerHTML = "+";
       divTerceiraLinha.append(buttonSum);
 
@@ -207,6 +327,14 @@
       button1.classList.add('border-light');
       button1.classList.add('btn-calc');
       button1.classList.add('col-3');
+      button1.onclick = function() {
+        var visor = document.getElementById('visor');
+        
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+      }
       button1.innerHTML = "1";
       divQuartaLinha.append(button1);
 
@@ -219,6 +347,16 @@
       button2.classList.add('border-light');
       button2.classList.add('btn-calc');
       button2.classList.add('col-3');
+      button2.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "2";
+      }
       button2.innerHTML = "2";
       divQuartaLinha.append(button2);
 
@@ -231,6 +369,16 @@
       button3.classList.add('border-light');
       button3.classList.add('btn-calc');
       button3.classList.add('col-3');
+      button3.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "3";
+      }
       button3.innerHTML = "3";
       divQuartaLinha.append(button3);
 
@@ -243,6 +391,16 @@
       buttonPoint.classList.add('border-light');
       buttonPoint.classList.add('btn-calc');
       buttonPoint.classList.add('col-3');
+      buttonPoint.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += ".";
+      }
       buttonPoint.innerHTML = ".";
       divQuartaLinha.append(buttonPoint);
 
@@ -261,6 +419,26 @@
       button0.classList.add('border-light');
       button0.classList.add('btn-calc');
       button0.classList.add('col-3');
+      button0.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "0";
+      }
+      button0.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "0";
+      }
       button0.innerHTML = "0";
       divQuintaLinha.append(button0);
 
@@ -273,6 +451,17 @@
       buttonEqual.classList.add('border-light');
       buttonEqual.classList.add('btn-calc');
       buttonEqual.classList.add('col-9');
+      buttonEqual.onclick = function() {
+        var visor = document.getElementById('visor');
+
+        if(resetarVisor) {
+          resetarVisor = false;
+          visor.value = "";
+        }
+
+        visor.value += "=";
+      }
+
       buttonEqual.innerHTML = "=";
       divQuintaLinha.append(buttonEqual);
 
