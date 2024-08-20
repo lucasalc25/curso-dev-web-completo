@@ -68,12 +68,7 @@
       buttonC.classList.add('col-6');
       buttonC.onclick = function() {
         var visor = document.getElementById('visor');
-
-        resetarVisor=true;
-        if(resetarVisor) {
-          resetarVisor = false;
-          visor.value = "";
-        }
+        visor.value = "";
       }
       buttonC.innerHTML = "C";
       divPrimeiraLinha.append(buttonC);
@@ -97,6 +92,10 @@
           visor.value = "";
         }
 
+        if (visor.value == "") {
+          return;
+        }
+
         visor.value += "/";
       }
       buttonDivider.innerHTML = "/";
@@ -114,9 +113,15 @@
       buttonMulti.onclick = function() {
         var visor = document.getElementById('visor');
 
+        resetarValor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
+        }
+
+        if (visor.value == "") {
+          return;
         }
 
         visor.value += "*";
@@ -209,9 +214,15 @@
       buttonSub.onclick = function() {
         var visor = document.getElementById('visor');
 
+        resetarValor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
+        }
+
+        if (visor.value == "") {
+          return;
         }
 
         visor.value += "-";
@@ -302,9 +313,15 @@
       buttonSum.onclick = function() {
         var visor = document.getElementById('visor');
 
+        resetarValor = true;
+
         if(resetarVisor) {
           resetarVisor = false;
           visor.value = "";
+        }
+
+        if (visor.value == "") {
+          return;
         }
 
         visor.value += "+";
@@ -334,6 +351,8 @@
           resetarVisor = false;
           visor.value = "";
         }
+
+        visor.value += "1";
       }
       button1.innerHTML = "1";
       divQuartaLinha.append(button1);
@@ -454,12 +473,18 @@
       buttonEqual.onclick = function() {
         var visor = document.getElementById('visor');
 
-        if(resetarVisor) {
-          resetarVisor = false;
-          visor.value = "";
+        try {
+          var result = eval(visor.value)
+          if(isNaN(parseFloat(result)) || !isFinite(result)) {
+            visor.value = "Falha na expressão";
+          } else {
+            visor.value = result
+          }
+        } catch(e) {
+          visor.value = "Falha na expressão";
         }
 
-        visor.value += "=";
+        resetarVisor = true;
       }
 
       buttonEqual.innerHTML = "=";
